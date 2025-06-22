@@ -16,3 +16,7 @@ def mask_account_card(card_acc_number: str) -> str:
     elif card_acc_number[:4] != "Счет":
         card_number = card_acc_number[int(card_acc_number_index):]
         return card_acc_number[:card_acc_number_index] + get_mask_card_number(card_number)
+
+
+def get_date(user_date: str) -> str:
+    return user_date[8:10] + "." + user_date[5:7] + "." + user_date[:4]
