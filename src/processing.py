@@ -1,4 +1,7 @@
-def filter_by_state(user_id_list: list, state: str = "EXECUTED") -> list:
+from typing import Any
+
+
+def filter_by_state(user_id_list: list, state: str = "EXECUTED") -> list[Any] | None:
     """Возвращает новый список словарей, содержащий только те словари, у которых ключ
     state соответствует указанному значению"""
 
