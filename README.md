@@ -15,6 +15,9 @@ https://github.com/PavelSergeevichA/Domashka.git
 ```
 pip install -r requirements.txt
 ```
-## Использование:
+## Тестирование:
 
-Скоро здесь появится больше информации (:
+Проект покрыт тестами pytest. Для их запуска выполните команду:
+```
+pytest
+```
