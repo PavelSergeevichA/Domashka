@@ -4,3 +4,9 @@ def filter_by_currency(transaction_list: list, currency: str) -> iter:
 
     return (transaction for transaction in transaction_list if currency ==
             transaction["operationAmount"]["currency"]["name"])
+
+
+def transaction_descriptions(transaction_list: list) -> iter:
+    """Возвращает описание каждой операции по очереди"""
+
+    return (description["description"] for description in transaction_list)
