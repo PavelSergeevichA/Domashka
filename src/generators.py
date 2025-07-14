@@ -12,15 +12,16 @@ def filter_by_currency(transaction_list: list, currency: str) -> iter:
 def transaction_descriptions(transaction_list: list) -> iter:
     """Возвращает описание каждой операции по очереди"""
 
-    return (description["description"] for description in transaction_list)
+    for description in transaction_list:
+        yield description["description"]
 
 
-def card_number_generator(start_gen: int, end_gen: int) -> iter:
+def card_number_generator(start: int, stop: int) -> iter:
     """Выдает номера банковских карт в формате XXXX XXXX XXXX XXXX, где X — цифра номера карты"""
 
     # Убираем пробелы во входных значениях
-    start_gen_num = int(start_gen.replace(" ", ""))
-    end_gen_num = int(end_gen.replace(" ", ""))
+    start_gen_num = int(start.replace(" ", ""))
+    end_gen_num = int(stop.replace(" ", ""))
 
     # Исключаем ввод неверного диапазона значений
     if start_gen_num < 1 or end_gen_num > 9999999999999999 or start_gen_num > end_gen_num:

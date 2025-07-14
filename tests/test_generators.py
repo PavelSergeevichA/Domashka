@@ -1,4 +1,4 @@
-from src.generators import filter_by_currency, transaction_descriptions, card_number_generator
+from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
 
 
 def test_filter_by_currency(list_of_transactions):
@@ -50,9 +50,11 @@ def test_filter_by_currency(list_of_transactions):
 
 
 def test_transaction_descriptions(list_of_transactions):
-    expected_result = ['Перевод организации', 'Перевод со счета на счет', 'Пополнение счета', 'Покупка']
-    result = list(transaction_descriptions(list_of_transactions))
-    assert result == expected_result
+    generator = transaction_descriptions(list_of_transactions)
+    assert next(generator) == 'Перевод организации'
+    assert next(generator) == 'Перевод со счета на счет'
+    assert next(generator) == 'Пополнение счета'
+    assert next(generator) == 'Покупка'
 
 
 def test_card_number_generator():
