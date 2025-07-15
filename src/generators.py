@@ -20,8 +20,8 @@ def card_number_generator(start: int, stop: int) -> iter:
     """Выдает номера банковских карт в формате XXXX XXXX XXXX XXXX, где X — цифра номера карты"""
 
     # Убираем пробелы во входных значениях
-    start_gen_num = int(start.replace(" ", ""))
-    end_gen_num = int(stop.replace(" ", ""))
+    start_gen_num = int(str(start).replace(" ", ""))
+    end_gen_num = int(str(stop).replace(" ", ""))
 
     # Исключаем ввод неверного диапазона значений
     if start_gen_num < 1 or end_gen_num > 9999999999999999 or start_gen_num > end_gen_num:

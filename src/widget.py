@@ -22,7 +22,7 @@ def mask_account_card(card_acc_number: str) -> str | None:
 
 
 def get_date(user_date: str) -> str | None:
-    """возвращает строку с датой в формате 'ДД.ММ.ГГГГ'"""
+    """Возвращает строку с датой в формате 'ДД.ММ.ГГГГ'"""
 
     if user_date != "" and user_date != 0 and user_date is not None and len(user_date) > 25:
         return user_date[8:10] + "." + user_date[5:7] + "." + user_date[:4]

@@ -1,5 +1,5 @@
 def get_mask_card_number(card_number: str) -> str:
-    """Маскирует номер карты звездочками, отображаются только первые 6 и последние 4 цифпы"""
+    """Маскирует номер карты звездочками, отображаются только первые 6 и последние 4 цифры"""
 
     if card_number != "" and len(card_number) == 16 and card_number is not None:
         masked_card_number = (card_number[:4], card_number[4:6] + "**", "****", card_number[12:])
