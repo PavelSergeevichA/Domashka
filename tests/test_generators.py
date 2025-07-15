@@ -1,4 +1,5 @@
 from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
+import pytest
 
 
 def test_filter_by_currency(list_of_transactions):
@@ -58,8 +59,17 @@ def test_transaction_descriptions(list_of_transactions):
 
 
 def test_card_number_generator():
-    generator = card_number_generator("152", "155")
+    generator = card_number_generator(152, 155)
     assert next(generator) == "0000 0000 0000 0152"
     assert next(generator) == "0000 0000 0000 0153"
     assert next(generator) == "0000 0000 0000 0154"
     assert next(generator) == "0000 0000 0000 0155"
+
+
+@pytest.mark.parametrize("start, stop, expected", [
+    (1, 3, "0000 0000 0000 0001"),
+    (152, 154, "0000 0000 0000 0152")
+])
+def test_card_number_generator_2(start, stop, expected):
+    assert next(card_number_generator(start, stop)) == expected
+    assert next(card_number_generator(start, stop)) == expected
