@@ -1,4 +1,4 @@
-from src.widget import mask_account_card, get_date
+from src.widget import get_date, mask_account_card
 
 
 def test_mask_account_card(full_card_test, full_account_test, empty_str, zero_data):
