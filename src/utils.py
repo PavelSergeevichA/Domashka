@@ -48,22 +48,4 @@ def convertation(operation: dict) -> float | None:
         response_dict = response.json()
         course_usd = int(response_dict["result"])
         return float(operation["operationAmount"]["amount"]) * course_usd
-    else:
-        return None
-
-
-if __name__ == '__main__':
-    input_file = '../data/operations.json'
-    operation_list = get_operations(input_file)
-    operation = {
-    "id": 41428829,
-    "state": "EXECUTED",
-    "date": "2019-07-03T18:35:29.512364",
-    "operationAmount": {
-      "amount": "8221.37",
-      "currency": {
-        "name": "EUR",
-        "code": "EUR"
-      }}}
-
-    print(convertation(operation))
+    return None
