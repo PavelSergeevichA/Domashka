@@ -97,7 +97,7 @@ def list_of_transactions():
 
 @pytest.fixture
 def input_file():
-    return "../data/operations.json"
+    return "../data/operation.json"
 
 
 @pytest.fixture

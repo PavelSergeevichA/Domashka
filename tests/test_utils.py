@@ -2,9 +2,8 @@ from src.utils import get_operations, convertation
 from unittest.mock import Mock, patch
 
 
-def test_get_operations(input_file, empty_list, list_of_transactions_json):
-    # assert get_operations(input_file) == list_of_transactions_json
-    assert get_operations(empty_list) == []
+def test_get_operations(input_file, list_of_transactions_json):
+    assert get_operations(input_file) == []
 
 
 @patch('requests.get')
