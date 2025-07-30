@@ -1,5 +1,6 @@
-from src.utils import get_operations, convertation
 from unittest.mock import Mock, patch
+
+from src.utils import convertation, get_operations
 
 
 def test_get_operations(input_file, list_of_transactions_json):
