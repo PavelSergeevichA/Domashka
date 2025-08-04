@@ -12,3 +12,16 @@ def process_bank_search(bank_operations: list[dict], search: str) -> list[dict]:
         else:
             continue
     return search_result
+
+
+def process_bank_operations(bank_operations: list[dict], categories:list) -> dict:
+    """Возвращает словарь, в котором ключи — это названия категорий,
+    а значения — это количество операций в каждой категории"""
+    category_count = {category: 0 for category in categories}
+
+    for operation in bank_operations:
+        description = operation.get("description")
+        if description in category_count:
+            category_count[description] += 1
+
+    return category_count
