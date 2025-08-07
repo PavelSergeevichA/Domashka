@@ -4,7 +4,7 @@ from src.masks import get_mask_account, get_mask_card_number
 def mask_account_card(card_acc_number: str) -> str | None:
     """Возвращает строку с замаскированным номером карты или счета"""
 
-    if card_acc_number != "" and card_acc_number != 0 and card_acc_number is not None and len(card_acc_number) > 21:
+    if card_acc_number != "" and card_acc_number != 0 and card_acc_number is not None and len(card_acc_number) > 20:
         if card_acc_number[
            :4] == "Счет":  # Проверяем тип платежной системы счет или карта и запускаем нужную функцию для
             account = card_acc_number[5:]  # ее обработки
@@ -24,6 +24,6 @@ def mask_account_card(card_acc_number: str) -> str | None:
 def get_date(user_date: str) -> str | None:
     """Возвращает строку с датой в формате 'ДД.ММ.ГГГГ'"""
 
-    if user_date != "" and user_date != 0 and user_date is not None and len(user_date) > 25:
+    if user_date != "" and user_date != 0 and user_date is not None and len(user_date) > 10:
         return user_date[8:10] + "." + user_date[5:7] + "." + user_date[:4]
     return None

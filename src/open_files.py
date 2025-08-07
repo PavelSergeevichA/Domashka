@@ -18,3 +18,12 @@ def get_transactions_excel(input_file_excel) -> list:
     df = pd.read_excel(input_file_excel)
     list_of_transactions = df.to_dict(orient='records')
     return list_of_transactions
+
+
+def normalize_transaction(transaction):
+    # Пример адаптации для CSV/Excel
+    if 'currency' not in transaction:
+        transaction['operationAmount'] = {
+            "currency": {"name": transaction.pop("currency_name")}
+        }
+    return transaction
