@@ -7,7 +7,7 @@ def filter_by_state(user_id_list: list, state: str = "EXECUTED") -> list[Any] | 
 
     filter_user = []
     for user_id in user_id_list:
-        if user_id['state'] == state:
+        if user_id.get("state") == state:
             filter_user.append(user_id)
         else:
             continue

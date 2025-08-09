@@ -14,7 +14,7 @@ def process_bank_search(bank_operations: list[dict], search: str) -> list[dict]:
     return search_result
 
 
-def process_bank_operations(bank_operations: list[dict], categories:list) -> dict:
+def process_bank_operations(bank_operations: list[dict], categories: list) -> dict:
     """Возвращает словарь, в котором ключи — это названия категорий,
     а значения — это количество операций в каждой категории"""
     category_count = {category: 0 for category in categories}
@@ -25,3 +25,13 @@ def process_bank_operations(bank_operations: list[dict], categories:list) -> dic
             category_count[description] += 1
 
     return category_count
+
+
+def filter_transactions_by_word(transactions: list[dict], word: str):
+    sorted_list = []
+    for transaction in transactions:
+        if re.search(word, transaction["description"], re.IGNORECASE):
+            sorted_list.append(transaction)
+        else:
+            continue
+    return sorted_list
